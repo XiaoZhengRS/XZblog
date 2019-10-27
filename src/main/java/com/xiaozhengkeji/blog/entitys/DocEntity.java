@@ -9,7 +9,7 @@ public class DocEntity {
     private String doctext;
     private Integer dj;
     private Integer ll;
-    private Date date;
+    private String date;
 
     @Override
     public String toString() {
@@ -22,16 +22,6 @@ public class DocEntity {
                 ", ll=" + ll +
                 ", date=" + date +
                 '}';
-    }
-
-    public DocEntity(Integer id, String tabname, String docclass, String doctext, Integer dj, Integer ll, Date date) {
-        this.id = id;
-        this.tabname = tabname;
-        this.docclass = docclass;
-        this.doctext = doctext;
-        this.dj = dj;
-        this.ll = ll;
-        this.date = date;
     }
 
     public Integer getId() {
@@ -82,11 +72,21 @@ public class DocEntity {
         this.ll = ll;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public DocEntity(Integer id, String tabname, String docclass, String doctext, Integer dj, Integer ll, String date) {
+        this.id = id;
+        this.tabname = tabname;
+        this.docclass = docclass;
+        this.doctext = doctext;
+        this.dj = dj;
+        this.ll = ll;
         this.date = date;
     }
 }

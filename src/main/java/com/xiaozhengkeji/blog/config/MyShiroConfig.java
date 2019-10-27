@@ -35,6 +35,7 @@ public class MyShiroConfig {
         shiroF.put("/", "anon");
         shiroF.put("/api/doc/show_all", "anon");
         shiroF.put("/api/doc/show_id/**", "anon");
+        shiroF.put("/api/doc/dz/**", "anon");
         //专门设置角色验证
         shiroF.put("/Editor", "authc");
         shiroF.put("/api/doc/add", "authc");

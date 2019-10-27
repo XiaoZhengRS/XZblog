@@ -4,6 +4,7 @@ import com.xiaozhengkeji.blog.entitys.DocEntity;
 import com.xiaozhengkeji.blog.entitys.UserEntity;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.Date;
 import java.util.List;
@@ -47,4 +48,16 @@ public interface DocMapper {
      */
     @Select("select * from document where id=#{id}")
     DocEntity getByIDDoc(Integer id);
+
+    /**
+     * 修改浏览器量
+     */
+    @Update("UPDATE document SET `ll`=#{ll} where id=#{id}")
+    int addDocLL(Integer ll, Integer id);
+
+    /**
+     * 修改点赞量
+     */
+    @Update("UPDATE document SET `dj`=#{DZ} where id=#{id}")
+    int addDocDZ(Integer DZ, Integer id);
 }

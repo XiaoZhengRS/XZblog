@@ -29,10 +29,22 @@ public class DocApi {
     DocMapper docMapper;
 
     @RequestMapping(value = "show_id/{id}", method = RequestMethod.GET)
-    public ModelAndView index(HttpServletRequest request, @PathVariable("id") String id) {
+    public ModelAndView show_id(HttpServletRequest request, @PathVariable("id") String id) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("doc", docMapper.getByIDDoc(Integer.valueOf(id)));
+        DocEntity docEntity = docMapper.getByIDDoc(Integer.valueOf(id));
+        docMapper.addDocLL(docEntity.getLl() + 1, docEntity.getId());
+        modelAndView.addObject("doc", docEntity);
         modelAndView.setViewName("show_doc");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "dz/{id}", method = RequestMethod.GET)
+    public ModelAndView dz_id(HttpServletRequest request, @PathVariable("id") String id) {
+        ModelAndView modelAndView = new ModelAndView();
+        DocEntity docEntity = docMapper.getByIDDoc(Integer.valueOf(id));
+        docMapper.addDocDZ(docEntity.getDj() + 1, docEntity.getId());
+        modelAndView.addObject("listDoc", docMapper.getALLDoc());
+        modelAndView.setViewName("index");
         return modelAndView;
     }
 
@@ -40,15 +52,15 @@ public class DocApi {
     @ResponseBody
     public String add(HttpServletRequest request, @RequestParam Map<String, Object> params) {
         String data_tit = (String) params.get("data_title");
-        String data_text = Base64.Baser64解密((String) params.get("data_text"));
+        String data_text = (String) params.get("data_text");
         String data_class = (String) params.get("data_class");
         //设置日期格式
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // new Date()为获取当前系统时间，也可使用当前时间戳
         String date = df.format(new Date());
-        int doc = 0;
-        data_text = StringEscapeUtils.unescapeHtml4(data_text);
+        data_text = data_text.replaceAll(" ", "+");
         logger.info(data_text);
+        int doc = 0;
         doc = docMapper.addDoc(data_tit, data_class, data_text, 0, 0, date);
         return String.valueOf(doc);
     }

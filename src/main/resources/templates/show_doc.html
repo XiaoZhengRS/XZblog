@@ -37,13 +37,16 @@
     <script src="/static/js/layui/layui.all.js"></script>
     <!-- 引入核心JS-->
     <script src="/static/js/main.js" type="module"></script>
+    <script src="/static/js/base64.js" type="module"></script>
     <title th:text="${doc.getTabname()}">欢迎阅读</title>
 </head>
 <body>
 <div class="app"></div>
 <script th:inline="javascript" type="text/javascript">
-    var docHtml = [[${doc.getDoctext()}]];
-    $('.app').append(docHtml);
+    var docHtml = "" + [[${doc.getDoctext()}]] + "";
+    window.onload = function () {
+        $('.app').append($.base64.decode(docHtml));
+    };
 </script>
 </body>
 </html>

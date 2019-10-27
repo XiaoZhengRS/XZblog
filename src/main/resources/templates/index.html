@@ -38,6 +38,32 @@
     <!-- 引入核心JS-->
     <script src="/static/js/main.js" type="module"></script>
     <title>博客首页</title>
+    <style type="text/css">
+        .cardBox {
+            width: 500px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+            text-align: center;
+            float: left;
+            margin-right: 10px;
+            padding: 5px;
+            padding-top: 15px;
+        }
+
+        .headerBox {
+            color: #fff;
+            padding: 10px;
+            font-size: 15px;
+            height: 20px;
+        }
+
+        .bodyBox {
+            padding: 10px;
+        }
+
+        .bodyBox p {
+            margin-left: 5px;
+        }
+    </style>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -58,10 +84,30 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <div class="layui-card" th:each="Doc : ${listDoc}">
-                <div class="layui-card-header" th:text="${Doc.getDocclass()}"></div>
-                <div class="layui-card-body" th:text="${Doc.getTabname()}"></div>
+            <!--            <div class="layui-card" th:each="Doc : ${listDoc}">
+                            <div class="layui-card-header" th:text="${Doc.getDocclass()}"></div>
+                            <div class="layui-card-body" th:text="${Doc.getTabname()}"></div>
+                            <a class="layui-btn layui-btn-normal" th:href="'/api/doc/show_id/' + ${Doc.getId()}">阅读</a>
+                        </div>-->
+            <div class="cardBox" th:each="Doc : ${listDoc}">
+                <div class="headerBox" style="background-color: #4caf50;">
+                    <p th:text="${Doc.getTabname()}">
+                        <!--                        <a title="阅读" style="cursor: pointer; color:white"
+                                                   th:href="'/api/doc/show_id/' + ${Doc.getId()}" th:text="${Doc.getTabname()}">文档标题</a>-->
+                    </p>
+                </div>
+                <div class="bodyBox">
+                    <p th:text="'类型: '+${Doc.getDocclass()}">文档类型</p>
+                    <p th:text="'发布时间: '+${Doc.getDate()}">文档发布时间</p>
+                    <p>
+                        点赞: <span class="layui-badge" th:text="${Doc.getDj()}"></span>
+                    </p>
+                    <p>
+                        浏览: <span class="layui-badge" th:text="${Doc.getLl()}"></span>
+                    </p>
+                </div>
                 <a class="layui-btn layui-btn-normal" th:href="'/api/doc/show_id/' + ${Doc.getId()}">阅读</a>
+                <a class="layui-btn layui-btn-danger" th:href="'/api/doc/dz/' + ${Doc.getId()}">点赞</a>
             </div>
         </div>
     </div>
