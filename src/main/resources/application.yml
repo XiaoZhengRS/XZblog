@@ -1,0 +1,15 @@
+spring:
+  mail:
+    host: xzkjns2.tpddns.cn
+    username: demo@xiaozhengkeji.com
+    password: Demo1024
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.0.104:3306/xiaozhengkeji?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: xiaozhengkeji
+    password: zYTPry8fk5GBZsbH
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true

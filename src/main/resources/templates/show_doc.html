@@ -1,0 +1,49 @@
+<!-- **************************************************************-->
+<!-- *                                                            *-->
+<!-- *    .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.      *-->
+<!-- *    |                     ______                     |      *-->
+<!-- *    |                  .-"      "-.                  |      *-->
+<!-- *    |                 /            \                 |      *-->
+<!-- *    |     _          |              |          _     |      *-->
+<!-- *    |    ( \         |,  .-.  .-.  ,|         / )    |      *-->
+<!-- *    |     > "=._     | )(__/  \__)( |     _.=" <     |      *-->
+<!-- *    |    (_/"=._"=._ |/     /\     \| _.="_.="\_)    |      *-->
+<!-- *    |           "=._"(_     ^^     _)"_.="           |      *-->
+<!-- *    |               "=\__|IIIIII|__/="               |      *-->
+<!-- *    |              _.="| \IIIIII/ |"=._              |      *-->
+<!-- *    |    _     _.="_.="\          /"=._"=._     _    |      *-->
+<!-- *    |   ( \_.="_.="                    "=._"=._/ )   |      *-->
+<!-- *    |    > _.="                            "=._ <    |      *-->
+<!-- *    |   (_/                                    \_)   |      *-->
+<!-- *    |                                                |      *-->
+<!-- *    '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='      *-->
+<!-- *                                                            *-->
+<!-- *           LASCIATE OGNI SPERANZA, VOI CH'ENTRATE           *-->
+<!-- **************************************************************-->
+<!-- 小正科技版权所有  作者小正QQ:1419158026  Full stack programmer!-->
+<!-- 最后装订时间:                      维护人员:小正               -->
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- 引入JS框架 -->
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/js/layui/css/layui.css">
+    <!-- 引入组件库 -->
+    <script src="/static/js/layui/layui.all.js"></script>
+    <!-- 引入核心JS-->
+    <script src="/static/js/main.js" type="module"></script>
+    <title th:text="${doc.getTabname()}">欢迎阅读</title>
+</head>
+<body>
+<div class="app"></div>
+<script th:inline="javascript" type="text/javascript">
+    var docHtml = [[${doc.getDoctext()}]];
+    $('.app').append(docHtml);
+</script>
+</body>
+</html>
