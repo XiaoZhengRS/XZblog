@@ -1,6 +1,8 @@
 package com.xiaozhengkeji.blog.controller;
 
+import com.xiaozhengkeji.blog.entitys.DocEntity;
 import com.xiaozhengkeji.blog.mapper.DocMapper;
+import com.xiaozhengkeji.blog.tools.ListTool;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
@@ -22,12 +24,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.ClientInfoStatus;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
 @RequestMapping("")
-public class Main {
+public class MainController {
     Logger logger = LoggerFactory.getLogger(getClass());
     @Autowired
     DocMapper docMapper;
@@ -35,7 +39,14 @@ public class Main {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView index(HttpServletRequest request, HashMap<String, Object> map) {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("listDoc", docMapper.getALLDoc());
+        List<DocEntity> docEntityList = docMapper.getALLDoc();
+        List<String> docClassList = new ArrayList<>();
+        for (DocEntity DE : docEntityList) {
+            docClassList.add(DE.getDocclass());
+        }
+        docClassList = ListTool.removeDuplicate(docClassList);
+        modelAndView.addObject("listDocClass", docClassList);
+        modelAndView.addObject("listDoc", docEntityList);
         modelAndView.setViewName("index");
         return modelAndView;
     }

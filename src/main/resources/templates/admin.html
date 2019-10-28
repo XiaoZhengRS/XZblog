@@ -1,0 +1,85 @@
+<!-- **************************************************************-->
+<!-- *                                                            *-->
+<!-- *    .=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-.      *-->
+<!-- *    |                     ______                     |      *-->
+<!-- *    |                  .-"      "-.                  |      *-->
+<!-- *    |                 /            \                 |      *-->
+<!-- *    |     _          |              |          _     |      *-->
+<!-- *    |    ( \         |,  .-.  .-.  ,|         / )    |      *-->
+<!-- *    |     > "=._     | )(__/  \__)( |     _.=" <     |      *-->
+<!-- *    |    (_/"=._"=._ |/     /\     \| _.="_.="\_)    |      *-->
+<!-- *    |           "=._"(_     ^^     _)"_.="           |      *-->
+<!-- *    |               "=\__|IIIIII|__/="               |      *-->
+<!-- *    |              _.="| \IIIIII/ |"=._              |      *-->
+<!-- *    |    _     _.="_.="\          /"=._"=._     _    |      *-->
+<!-- *    |   ( \_.="_.="                    "=._"=._/ )   |      *-->
+<!-- *    |    > _.="                            "=._ <    |      *-->
+<!-- *    |   (_/                                    \_)   |      *-->
+<!-- *    |                                                |      *-->
+<!-- *    '-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-='      *-->
+<!-- *                                                            *-->
+<!-- *           LASCIATE OGNI SPERANZA, VOI CH'ENTRATE           *-->
+<!-- **************************************************************-->
+<!-- 小正科技版权所有  作者小正QQ:1419158026  Full stack programmer!-->
+<!-- 最后装订时间:                      维护人员:小正               -->
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- 引入JS框架 -->
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="/static/js/layui/css/layui.css">
+    <!-- 引入组件库 -->
+    <script src="/static/js/layui/layui.all.js"></script>
+    <!-- 引入核心JS-->
+    <script src="/static/js/main.js" type="module"></script>
+    <script src="/static/js/base64.js" type="module"></script>
+    <title>后台管理</title>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">小正博客后台管理</div>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href=""><img
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGwAAABsCAYAAACPZlfNAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5OGEwY2RmMS0zNDFmLTRmYjYtYTkyYy03ZTgwNDVlMWFlYmIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjRBMkJBMDA2RUFCMTFFM0FDNjc5MDQwNDhFQTJCRDkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjRBMkI5RkY2RUFCMTFFM0FDNjc5MDQwNDhFQTJCRDkiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTlhMDMxNGItNzJkYy00MGRlLThkOTMtOTM0MmYzZjExNDk0IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk4YTBjZGYxLTM0MWYtNGZiNi1hOTJjLTdlODA0NWUxYWViYiIvPiA8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"
+                        class="layui-nav-img">admin</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">文档管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/admin/show_all_doc">所有文档</a></dd>
+                        <dd><a href="/Editor">添加文档</a></dd>
+                        <dd><a href="/admin/show_all_doc_class">文档类型</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">评论管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">全部评论</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;">内容施工中!占时使用跳转!</div>
+    </div>
+</div>
+</body>
+</html>

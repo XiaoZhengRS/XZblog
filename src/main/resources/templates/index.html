@@ -72,12 +72,10 @@
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a href="">首页</a></li>
             <li class="layui-nav-item"><a href="/Editor">发布文档</a></li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item"><a href="/admin">后台管理</a></li>
+            <li class="layui-nav-item"><a href="javascript:;">文档分类</a>
                 <dl class="layui-nav-child">
-                    <!-- 此功能遍历map等待上线 -->
-                    <dd><a href="">测试文档类A</a></dd>
-                    <dd><a href="">测试文档类B</a></dd>
-                    <dd><a href="">测试文档类C</a></dd>
+                    <dd th:each="docclass : ${listDocClass}"><a href="" th:text="${docclass}">测试文档类A</a></dd>
                 </dl>
             </li>
         </ul>

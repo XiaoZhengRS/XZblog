@@ -2,6 +2,7 @@ package com.xiaozhengkeji.blog.mapper;
 
 import com.xiaozhengkeji.blog.entitys.DocEntity;
 import com.xiaozhengkeji.blog.entitys.UserEntity;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -60,4 +61,10 @@ public interface DocMapper {
      */
     @Update("UPDATE document SET `dj`=#{DZ} where id=#{id}")
     int addDocDZ(Integer DZ, Integer id);
+
+    /**
+     * 删除文章
+     */
+    @Delete("DELETE FROM document WHERE id=#{id}")
+    int delDoc(Integer id);
 }

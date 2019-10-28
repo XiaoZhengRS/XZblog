@@ -39,6 +39,8 @@ public class MyShiroConfig {
         //专门设置角色验证
         shiroF.put("/Editor", "authc");
         shiroF.put("/api/doc/add", "authc");
+        shiroF.put("/api/doc/del/**", "authc");
+        shiroF.put("/admin/**", "authc");
     }
 
     /**

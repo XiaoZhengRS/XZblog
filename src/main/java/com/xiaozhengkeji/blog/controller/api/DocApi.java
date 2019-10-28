@@ -64,4 +64,14 @@ public class DocApi {
         doc = docMapper.addDoc(data_tit, data_class, data_text, 0, 0, date);
         return String.valueOf(doc);
     }
+
+    @RequestMapping(value = "del/{id}", produces = "application/json;charset=utf-8", method = RequestMethod.GET)
+    @ResponseBody
+    public String del(HttpServletRequest request, @PathVariable("id") String id) {
+        int ret = docMapper.delDoc(Integer.valueOf(id));
+        if (ret == 1) {
+            return "成功!";
+        }
+        return "失败!";
+    }
 }
